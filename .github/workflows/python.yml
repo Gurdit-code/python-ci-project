@@ -1,0 +1,23 @@
+name: Python CI
+
+on: [push]
+
+jobs: 
+   test:
+   runs-on: ubuntu-latest
+
+   steps:
+   -name: Get name
+   uses: actions/checkout@4v
+
+   -name: Install Python
+   uses: actions/setup-Python@v5
+   with:
+     python-version: '3.12'
+
+   -name:Install packages
+   run: Pip install -r requirements.txt
+
+   -name:Run tests
+   run: pytest
+
